@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.scrollBtn {
+  position: fixed;
+  top: 83%;
+  left: 93%;
+
+  font-size: 80px;
+  background-color: transparent;
+  border: none;
+}
+
+.titleBox {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-color: rgb(233, 150, 92);
+}
+
+.title {
+  display: flex;
+  font-weight: 700;
+  font-size: 50px;
+
+  color: #622626;
+}
+
+.searchBox {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+
+  background-color: bisque;
+}
+
+.inputBox {
+  width: 500px;
+  height: 50px;
+  padding: 5px;
+
+  text-align: center;
+
+  border: none;
+  border-radius: 10px;
+  font-size: 40px;
+}
+
+.searchBtn {
+  width: 60px;
+  height: 50px;
+  margin: 10px;
+
+  background-color: beige;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.cardList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
+  background-color: antiquewhite;
+}
+
+.oneCard {
+  margin: 20px;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 10px;
+
+  background-color: rgb(196, 148, 115);
+
+  position: relative;
+}
+
+.oneCard img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.contentBox {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vote {
+  margin-left: auto;
+  margin-top: auto;
+  font-size: 24px;
+  font-weight: 700;
+}

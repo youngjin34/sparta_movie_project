@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화 카드</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index(제출용).js" defer></script>
+  </head>
+  <body>
+    <div class="titleBox" id="titleBox">
+      <h1 class="title">
+        <a href="./index.html">&nbsp;🏛️&nbsp;</a>인생에서 한 번은 봐야하는 영화
+        추천
+      </h1>
+    </div>
+
+    <form class="searchBox">
+      <input
+        type="text"
+        class="inputBox"
+        id="inputBox"
+        placeholder="영화 제목을 검색하세요"
+      />
+      <button type="submit" class="searchBtn">검색</button>
+    </form>
+    <button class="scrollBtn" style="z-index: 10">
+      <a href="index.html#titleBox">☝</a>
+    </button>
+
+    <div class="cardList" id="cardList"></div>
+  </body>
+</html>
