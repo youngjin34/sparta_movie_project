@@ -74,11 +74,28 @@ a {
 }
 
 .cardList {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-  background-color: antiquewhite;
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.movie img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.movie > p {
 }
 
 .oneCard {
@@ -115,3 +132,5 @@ a {
   font-size: 24px;
   font-weight: 700;
 }
+
+/* ------------------------------------------------------- */

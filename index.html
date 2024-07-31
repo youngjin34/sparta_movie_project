@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 카드</title>
-    <link rel="stylesheet" href="./index.css" />
-    <script src="./index(제출용).js" defer></script>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <div class="titleBox" id="titleBox">
@@ -28,6 +27,21 @@
       <a href="index.html#titleBox">☝</a>
     </button>
 
-    <div class="cardList" id="cardList"></div>
+    <section>
+      <div>
+        <button id="all-btn" genre="all">전체 보기</button>
+        <button id="comedy-btn" genre="comedy">코미디</button>
+        <button id="thriller-btn" genre="thriller">스릴러</button>
+        <button id="action-btn" genre="action">액션</button>
+        <button id="romance-btn" genre="romance">로맨스</button>
+        <button id="drama-btn" genre="drama">드라마</button>
+      </div>
+    </section>
+    <section class="card-container">
+      <div class="cardList" id="cardList"></div>
+    </section>
+
+    <script type="module" src="./js/fetchData.js"></script>
+    <script type="module" src="./js/genre.js" defer></script>
   </body>
 </html>
