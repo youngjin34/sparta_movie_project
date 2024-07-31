@@ -1,15 +1,15 @@
 import { movies, fetchMovies } from "./fetchData.js";
-
+console.log(movies);
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
   inputBox.focus();
 };
 
+
 // 카드리스트 생성하기
 function makeMovieCards() {
   const cardList = document.querySelector("#cardList");
   cardList.innerHTML = "";
-  console.log("cjtghkaus");
   movies.forEach(movie => {
     const movieElement = document.createElement("div");
     movieElement.classList.add("movie");

@@ -1,5 +1,4 @@
-
-export const movies = [];
+export let movies = [];
 
 async function fetchMovieData(page = 1) {
   const options = {
@@ -22,12 +21,21 @@ async function fetchMovieData(page = 1) {
 }
 
 // 여러 페이지에서 영화를 가져오는 함수
-export async function fetchMovies(pages = 3) {
+export async function fetchMovies(pages = 4) {
   for (let i = 1; i <= pages; i++) {
     const movieData = await fetchMovieData(i);
     movies.push(...movieData);
   }
-  return movies;
+  const newMovies = movies.filter((movieId, idx) => {
+    return (
+      movies.findIndex((movieId1) => {
+        return movieId.id === movieId1.id
+      }) === idx
+    )
+  });
+  movies = [...newMovies];
+  console.log(movies);
+  return newMovies;
 }
 
 
