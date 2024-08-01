@@ -78,15 +78,14 @@ input {
 }
 
 .reviewOutputBox {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 400px));
   justify-content: center;
 
   background-color: aqua;
 }
 
 .oneReview {
-  width: 700px;
-
   margin: 10px;
 
   display: flex;
