@@ -1,7 +1,21 @@
+/* 메인 폰트 스타일 */
+@font-face {
+  font-family: 'HSSanTokki20-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'HSSanTokki20-Regular';
+  /* 새 폰트 적용 */
+  background-color: #AF6824 !important
+    /* background: linear-gradient(white, #eaa565, #AF6824); */
 }
+
 a {
   text-decoration: none;
 }
@@ -18,7 +32,7 @@ a {
 
 .titleBox {
   width: 100%;
-  height: 100px;
+  height: 120px;
 
   display: flex;
 
@@ -26,15 +40,30 @@ a {
   align-items: center;
   text-align: center;
 
-  background-color: rgb(233, 150, 92);
+  background-color: #fce96d;
+  border-bottom: 1px solid #1f1f1f;
 }
 
 .title {
   display: flex;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40x;
+  font-family: 'HSSanTokki20-Regular';
+}
 
-  color: #622626;
+.title a {
+  color: #1f1f1f;
+  text-decoration: none;
+}
+
+.title a:hover {
+  /* 마우스 호버 상태에서 색상 변경 */
+  color: #AF6824;
+  text-shadow:
+    1px 1px 0 white,
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white;
 }
 
 .searchBox {
@@ -46,20 +75,20 @@ a {
   align-items: center;
   text-align: center;
   flex-direction: row;
-
-  background-color: bisque;
+  /* background-color: bisque; */
 }
 
 .inputBox {
-  width: 500px;
-  height: 50px;
+  width: 400px;
+  height: 40px;
   padding: 5px;
 
   text-align: center;
-
-  border: none;
-  border-radius: 10px;
-  font-size: 40px;
+  border: 1px solid #fce96d;
+  /* border-radius: 10px; */
+  font-family: 'Pixelify+Sans';
+  font-size: 30px;
+  color: #1f1f1f;
 }
 
 .searchBtn {
@@ -76,14 +105,34 @@ a {
 .cardList {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding-left: 90px;
+  padding-right: 90px;
+  /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));  */
+  /* 기존 */
+}
 
-  background-color: antiquewhite;
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.movie img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.movie > p {
 }
 
 .oneCard {
   margin: 20px;
   padding: 10px;
+  height: 550px; /* 높이 설정 */
 
   display: flex;
   align-items: center;
@@ -91,14 +140,22 @@ a {
 
   border-radius: 10px;
 
-  background-color: rgb(196, 148, 115);
+  background-color: white;
 
   position: relative;
+  overflow: hidden;
+  /* 카드의 자식 요소(overviewBox)가 넘치지 않도록 설정 */
 }
+
 
 .oneCard img {
   width: 100%;
   border-radius: 10px;
+}
+
+.contentTitle{
+  font-family: sans-serif;
+  size: 20px;
 }
 
 .contentBox {
@@ -109,9 +166,35 @@ a {
   flex-direction: column;
 }
 
+
 .vote {
   margin-left: auto;
   margin-top: auto;
   font-size: 24px;
   font-weight: 700;
+}
+
+/* Overview 박스 스타일 */
+.overviewBox {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 20px;
+  background-color: rgba(252, 233, 109, 0.95);
+  color: #1f1f1f;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 카드에 마우스 올렸을때 overviewBox 호버 */
+.oneCard:hover .overviewBox {
+  opacity: 1;
+  visibility: visible;
 }

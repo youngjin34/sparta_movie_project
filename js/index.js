@@ -1,5 +1,6 @@
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
+  const inputBox = document.getElementById('inputBox');
   inputBox.focus();
 };
 
@@ -26,20 +27,21 @@ async function fetchMovieData() {
 // 카드리스트 생성하기
 const makeMovieCards = async () => {
   const movieData = await fetchMovieData();
-
   const cardList = document.querySelector(".cardList");
 
   cardList.innerHTML = movieData
     .map(
       (movieData) => `
-        <div class="oneCard" id=${movieData.id}>
-          <img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}">
-          <div class="contentBox">
-            <h2 class="contentTitle">${movieData.title}</h2>
-            <p>${movieData.overview}</p>
-            <p class="vote">${movieData.vote_average}</p>
-          </div>
-        </div>`
+      <div class="oneCard" id=${movieData.id}>
+        <img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}">
+        <div class="contentBox">
+          <h2 class="contentTitle">${movieData.title}</h2>
+          <p class="vote">${movieData.vote_average}</p>
+        </div>
+        <div class="overviewBox">
+          <p>${movieData.overview}</p>
+      </div>
+    </div>`
     )
     .join("");
 
@@ -48,7 +50,6 @@ const makeMovieCards = async () => {
   //이벤트 위임
   function clickCard({ target }) {
     if (target === cardList) return;
-
     if (target.matches(".oneCard")) {
       alert(`영화 id: ${target.id}`);
     } else {
