@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>영화 카드</title>
+    <title>ꔛ9르면서 영화보기ꔛ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap"
       rel="stylesheet"
@@ -13,6 +17,37 @@
   <body>
     <div class="wrap">
       <div class="titleBox container" id="titleBox">
+        <div class="button-container">
+          <div class="genre">
+            <button class="genre-btn" id="all-btn" genre="all">
+              전체 보기
+            </button>
+            <button class="genre-btn" id="comedy-btn" genre="comedy">
+              코미디
+            </button>
+            <button class="genre-btn" id="thriller-btn" genre="thriller">
+              스릴러
+            </button>
+            <button class="genre-btn" id="action-btn" genre="action">
+              액션
+            </button>
+            <button class="genre-btn" id="romance-btn" genre="romance">
+              로맨스
+            </button>
+            <button class="genre-btn" id="drama-btn" genre="drama">
+              드라마
+            </button>
+          </div>
+          <form class="searchBox">
+            <input
+              type="text"
+              class="inputBox"
+              id="inputBox"
+              placeholder="Search movie title"
+            />
+            <button type="submit" class="searchBtn">Search</button>
+          </form>
+        </div>
         <div id="slider__wrap">
           <div id="slider"></div>
         </div>
@@ -27,38 +62,17 @@
         </header>
       </div>
 
-      <form class="searchBox serach-container">
-        <input
-          type="text"
-          class="inputBox"
-          id="inputBox"
-          placeholder="영화 제목을 검색하세요"
-        />
-        <button type="submit" class="searchBtn">검색</button>
-        <button class="scrollBtn" style="z-index: 10">
-          <a href="index.html#titleBox">☝</a>
-        </button>
-      </form>
-
       <section class="">
-        <div class="genre">
-          <button class="genre-btn" id="all-btn" genre="all">전체 보기</button>
-          <button class="genre-btn" id="comedy-btn" genre="comedy">
-            코미디
-          </button>
-          <button class="genre-btn" id="thriller-btn" genre="thriller">
-            스릴러
-          </button>
-          <button class="genre-btn" id="action-btn" genre="action">액션</button>
-          <button class="genre-btn" id="romance-btn" genre="romance">
-            로맨스
-          </button>
-          <button class="genre-btn" id="drama-btn" genre="drama">드라마</button>
-        </div>
-        <section class="card-container container">
-          <div class="cardList container" id="cardList"></div>
+        <!-- <div class="cardList" id="cardList"></div> -->
+
+        <section class="card-container">
+          <div class="cardList" id="cardList"></div>
         </section>
       </section>
+
+      <button class="scrollBtn">
+        <i class="bi bi-arrow-bar-up"></i>
+      </button>
     </div>
 
     <script type="module" src="./js/fetchData.js"></script>

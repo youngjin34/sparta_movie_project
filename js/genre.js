@@ -7,28 +7,39 @@ fetchMovies().then(() => {
 
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
-  // inputBox.focus();
+  inputBox.focus();
 };
 
 // 카드리스트 생성하기
-function makeMovieCards() {
+function makeMovieCards(movies) {
   const cardList = document.querySelector("#cardList");
   cardList.innerHTML = "";
+
   movies.forEach(movie => {
     const movieElement = document.createElement("div");
     movieElement.classList.add("movie");
     movieElement.innerHTML = `
-      <a href="detailMovie.html" movieId=${movie.id}>
-        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
-        <h2>${movie.title}</h2>
-        <p><b>개봉일:</b> ${movie.release_date}</p>
-        <p><b>평점:</b> ${movie.vote_average}</p>
-      </a>
+      <div class="oneCard">
+        <a href="detailMovie.html" movieId=${movie.id}>
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+          <div class="contentBox">
+            <h2 class="contentTitle">${movie.title}</h2>
+            <div class="infoBox">
+              <p class="vote"><b>평점:</b> ${movie.vote_average}</p>
+              <p class="releaseDate"><b>개봉일:</b> ${movie.release_date}</p>
+            </div>
+          </div>
+          <div class="overviewBox">
+            <h2 class="overviewTitle">${movie.title}</h2>
+            <p>${movie.overview}</p>
+          </div>
+        </a>
+      </div>
     `;
 
     cardList.appendChild(movieElement);
   });
-};
+}
 
 // 장르별 영화 필터링
 function genreMovies(genreValue) {
@@ -64,12 +75,22 @@ function setupGenreButtons() {
         const movieElement = document.createElement("div");
         movieElement.classList.add("movie");
         movieElement.innerHTML = `
-          <a href="detailMovie.html">
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
-            <h2>${movie.title}</h2>
-            <p><b>개봉일:</b> ${movie.release_date}</p>
-            <p><b>평점:</b> ${movie.vote_average}</p>
-          </a>
+          <div class="oneCard">
+            <a href="detailMovie.html" id="movieId" movieId=${movie.id}>
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+              <div class="contentBox">
+                <h2 class="contentTitle">${movie.title}</h2>
+                <div class="infoBox">
+                  <p class="vote"><b>평점:</b> ${movie.vote_average}</p>
+                  <p class="releaseDate"><b>개봉일:</b> ${movie.release_date}</p>
+                </div>
+              </div>
+              <div class="overviewBox">
+                <h2 class="overviewTitle">${movie.title}</h2>
+                <p>${movie.overview}</p>
+              </div>
+            </a>
+          </div>
         `;
 
         cardList.appendChild(movieElement);
@@ -79,4 +100,21 @@ function setupGenreButtons() {
   });
 }
 
+// scrollBtn
+const scrollBtn = document.querySelector('.scrollBtn');
 
+document.addEventListener('scroll', () => {
+  //홈 높이의 반 정도 스크린이 위치했을 때, 상단으로 올라가는 버튼 등장
+  if (homeHeight / 2 < window.scrollY) {
+    scrollBtn.style.opacity = 1;
+  } else {
+    scrollBtn.style.opacity = 0;
+  }
+});
+
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+});

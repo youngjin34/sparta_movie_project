@@ -1,103 +1,32 @@
-/* genre Button */
-:root {
-  --bg: #fff;
-  --text: #382b22;
-  --light-pink: #fff0f0;
-  --pink: #ffe9e9;
-  --dark-pink: #f9c4d2;
-  --pink-border: #b18597;
-  --pink-shadow: #ffe3e2;
+/* ---------------genre button---------------- */
+.button-container {
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 10%;
+
+  z-index: 1;
 }
+
 .genre {
-  margin-left: 75px;
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
+  position: absolute;
 
-/* 화면 너비가 768px 이하일 때 */
-@media (max-width: 768px) {
-  .genre {
-    width: calc(50% - 20px);
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-}
-
-/* 화면 너비가 480px 이하일 때 */
-@media (max-width: 480px) {
-  .genre {
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
+  top: 25px;
+  left: 30px;
 }
 
 .genre > button {
-  position: relative;
-  display: inline-block;
   cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  font-size: inherit;
-  font-family: inherit;
-
-  margin: 0;
+  border: none;
+  background: none;
+  color: white;
 }
 
-button.genre-btn {
-  font-weight: 600;
-  color: var(--text);
-  text-transform: uppercase;
-  padding: 1.25em 2em;
-  background: var(--light-pink);
-  border: 2px solid var(--pink-border);
-  border-radius: 0.75em;
-  transform-style: preserve-3d;
-  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
-    background 150ms cubic-bezier(0, 0, 0.58, 1);
+@media (min-width: 780px) {
+  .genre {
+    top: 20px;
+  }
 }
-
-button.genre-btn::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--dark-pink);
-  border-radius: inherit;
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0.625em 0 0 var(--pink-shadow);
-  transform: translate3d(0, 0.75em, -1em);
-  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
-    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-}
-
-button.genre-btn:hover {
-  background: var(--pink);
-  transform: translate(0, 0.25em);
-}
-
-button.genre-btn:hover::before {
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0.5em 0 0 var(--pink-shadow);
-  transform: translate3d(0, 0.5em, -1em);
-}
-
-button.genre-btn:active {
-  background: var(--pink);
-  transform: translate(0em, 0.75em);
-}
-
-button.genre-btn:active::before {
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0 var(--pink-shadow);
-  transform: translate3d(0, 0, -1em);
-}
-
 /* ------------------header slide-------------------- */
 /* 슬라이더 전체 컨테이너 */
 #slider__wrap {
@@ -155,6 +84,13 @@ body {
   /* overflow: hidden; */
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(244, 244, 244) !important;
+  /* background: linear-gradient(white, #eaa565, #AF6824); */
+}
+
 a {
   text-decoration: none;
 }
@@ -173,6 +109,7 @@ a {
   width: 100%;
   height: 100vh;
   position: relative;
+
   display: flex;
   flex-direction: column;
   text-align: end;
@@ -195,117 +132,242 @@ a {
   position: absolute;
   width: 29%;
   right: 100px;
-  top: 200px;
+  top: 300px;
 }
 
 .title {
   font-weight: 700;
   font-size: 60px;
   font-family: 'jua';
+  border-bottom: 1px solid #1f1f1f;
+}
 
-  color: #622626;
+.title a {
+  color: #ff0000;
+  text-decoration: none;
 }
 
 .searchBox {
   width: 100%;
   height: 100px;
+  position: absolute;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: row;
-
-  background-color: bisque;
+  right: 10px;
+  top: 25px;
 }
 
 .inputBox {
-  width: 500px;
-  height: 50px;
-  padding: 5px;
-
-  text-align: center;
-
   border: none;
-  border-radius: 10px;
-  font-size: 40px;
+  font-size: 18px;
 }
 
 .searchBtn {
-  width: 60px;
-  height: 50px;
-  margin: 10px;
-
-  background-color: beige;
+  cursor: pointer;
   border: none;
-  border-radius: 10px;
+  background: none;
   font-size: 20px;
+  color: white;
 }
 
 .card-container {
   margin: 0 auto;
-}
-
-.cardList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.movie {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(25% - 10px);
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  margin-left: 80px;
-  margin-right: 80px;
-}
-
-.movie img {
-  max-width: 100%;
-  height: 75%;
-  border-radius: 10px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(82, 71, 71, 0.925) 54%,
+    rgb(0, 0, 0) 100%
+  );
 }
 
 .movie > a {
   color: black;
 }
 
+.cardList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* 최소 크기를 250px로 하고 최대 4열로 */
+  gap: 20px; /* 카드 간 간격 */
+  padding: 20px 40px; /* 위아래 20px, 양쪽 50px의 패딩 */
+  box-sizing: border-box; /* 패딩 포함한 전체 너비 계산 */
+  max-width: 1200px; /* 최대 너비를 1200px로 제한 */
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
 .oneCard {
-  margin: 20px;
-  padding: 10px;
+  /* margin: 10px; */
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
+  height: 100%;
   border-radius: 10px;
 
-  background-color: rgb(196, 148, 115);
+  background-color: #ffff;
 
   position: relative;
+  overflow: hidden;
+  /* 카드의 자식 요소(overviewBox)가 넘치지 않도록 설정 */
 }
 
 .oneCard img {
   width: 100%;
-  border-radius: 10px;
+  object-fit: cover;
+  /* 이미지가 카드 영역에 맞게 자르기 */
+  display: block;
+  /* 이미지를 블록 요소로 설정하여 여백 제거 */
+  /* border-radius: 10px; */
 }
 
 .contentBox {
-  margin: 10px;
+  padding: 20px 20px 0px 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  /* 상단 정렬 */
+  align-items: center;
+  width: 100%;
+
+  /* 카드의 너비에 맞추어 설정 */
 }
 
+.contentTitle {
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: left;
+  /* 왼쪽 정렬 추가 */
+
+  width: 100%;
+  /* 전체 너비를 차지하여 왼쪽 정렬 적용 */
+  overflow: hidden;
+  /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis;
+  /* 넘치는 텍스트를 '...'으로 표시 */
+  white-space: nowrap;
+  /* 텍스트를 한 줄로 유지 */
+  box-sizing: border-box;
+  /* padding과 border를 포함한 전체 너비 계산 */
+  padding-bottom: 5px;
+}
+
+/* infoBox(vote+releaseDate) 추가 */
+.infoBox {
+  /* border-top: 1.5px solid #0f5fff; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* 평점 스타일 */
 .vote {
-  margin-left: auto;
-  margin-top: auto;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 /* ------------------------------------------------------- */
+/* 개봉일 */
+.releaseDate {
+  color: #000000;
+  font-size: 18px;
+}
+
+/* Overview 박스 스타일 */
+.overviewBox {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  color: #000000;
+  /* border-radius: 10px; */
+
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  /* 기본적으로 열 방향으로 배치 */
+  align-items: flex-start;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 카드에 마우스 올렸을때 overviewBox 호버 */
+.oneCard:hover .overviewBox {
+  opacity: 1;
+  visibility: visible;
+  flex-direction: column;
+  /* 제목 위에 개요가 오도록 설정 */
+}
+
+/* 호버 - 제목 스타일 */
+.overviewBox h2 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  /* 제목-개요 사이 간격 */
+  flex-direction: row;
+  /* 호버 시 방향을 행으로 설정 */
+  justify-content: flex-start;
+  /* 내용 왼쪽 정렬 */
+  align-items: flex-start;
+  /* 내용 상단 정렬 */
+  overflow: visible;
+  /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+.overviewBox p {
+  font-size: 18px;
+  padding-right: 15px;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+/* 전체 스크롤바 */
+.overviewBox p::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 */
+.overviewBox p::-webkit-scrollbar-track {
+  background: #fff; /* 스크롤바 배경 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 트랙의 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 */
+.overviewBox p::-webkit-scrollbar-thumb {
+  background: #ff0000; /* 스크롤바 핸들의 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 핸들의 둥근 모서리 */
+}
+
+.oneCard:hover .contentBox {
+  opacity: 0;
+  /*기본 상태에서는 줄거리 보이지 않도록 설정 */
+}
+
+/* scrollBtn */
+.scrollBtn {
+  cursor: pointer;
+  /* 모양 동그랗게 */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  margin-left: auto;
+
+  /* 하단에 붙어있게 */
+  display: flex;
+  position: sticky;
+  bottom: 50px;
+  right: 50px;
+}
+
+.scrollBtn > i {
+  margin: auto;
+  text-align: center;
+  font-size: var(-font-medium);
+  color: var(-color-dark-gray);
+}
