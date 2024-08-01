@@ -4,44 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 카드</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <div class="titleBox" id="titleBox">
-      <h1 class="title">
-        <a href="./index.html">&nbsp;🏛️&nbsp;</a>인생에서 한 번은 봐야하는 영화
-        추천
-      </h1>
+    <div class="wrap">
+      <div class="titleBox container" id="titleBox">
+        <div id="slider__wrap">
+          <div id="slider"></div>
+        </div>
+        <header class="introduce">
+          <h1 class="title">
+            <a href="./index.html">9르면서 영화보기</a>
+          </h1>
+          <div>
+            심심할 때, 그냥 영화를 보고싶은데 뭘봐야 좋을지 모를 때 장르별로
+            검색해볼 수 있습니다.
+          </div>
+        </header>
+      </div>
+
+      <form class="searchBox serach-container">
+        <input
+          type="text"
+          class="inputBox"
+          id="inputBox"
+          placeholder="영화 제목을 검색하세요"
+        />
+        <button type="submit" class="searchBtn">검색</button>
+        <button class="scrollBtn" style="z-index: 10">
+          <a href="index.html#titleBox">☝</a>
+        </button>
+      </form>
+
+      <section class="">
+        <div class="genre">
+          <button class="genre-btn" id="all-btn" genre="all">전체 보기</button>
+          <button class="genre-btn" id="comedy-btn" genre="comedy">
+            코미디
+          </button>
+          <button class="genre-btn" id="thriller-btn" genre="thriller">
+            스릴러
+          </button>
+          <button class="genre-btn" id="action-btn" genre="action">액션</button>
+          <button class="genre-btn" id="romance-btn" genre="romance">
+            로맨스
+          </button>
+          <button class="genre-btn" id="drama-btn" genre="drama">드라마</button>
+        </div>
+        <section class="card-container container">
+          <div class="cardList container" id="cardList"></div>
+        </section>
+      </section>
     </div>
 
-    <form class="searchBox">
-      <input
-        type="text"
-        class="inputBox"
-        id="inputBox"
-        placeholder="영화 제목을 검색하세요"
-      />
-      <button type="submit" class="searchBtn">검색</button>
-    </form>
-    <button class="scrollBtn" style="z-index: 10">
-      <a href="index.html#titleBox">☝</a>
-    </button>
-
-    <section>
-      <div>
-        <button id="all-btn" genre="all">전체 보기</button>
-        <button id="comedy-btn" genre="comedy">코미디</button>
-        <button id="thriller-btn" genre="thriller">스릴러</button>
-        <button id="action-btn" genre="action">액션</button>
-        <button id="romance-btn" genre="romance">로맨스</button>
-        <button id="drama-btn" genre="drama">드라마</button>
-      </div>
-    </section>
-    <section class="card-container">
-      <div class="cardList" id="cardList"></div>
-    </section>
-
     <script type="module" src="./js/fetchData.js"></script>
+    <script type="module" src="./js/headerSlide.js"></script>
     <script type="module" src="./js/genre.js" defer></script>
   </body>
 </html>

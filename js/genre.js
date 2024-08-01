@@ -1,10 +1,14 @@
 import { movies, fetchMovies } from "./fetchData.js";
-console.log(movies);
+
+fetchMovies().then(() => {
+  makeMovieCards(movies); // 영화 데이터가 로드된 후 카드 생성
+  setupGenreButtons();
+});
+
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
-  inputBox.focus();
+  // inputBox.focus();
 };
-
 
 // 카드리스트 생성하기
 function makeMovieCards() {
@@ -14,10 +18,12 @@ function makeMovieCards() {
     const movieElement = document.createElement("div");
     movieElement.classList.add("movie");
     movieElement.innerHTML = `
-      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
-      <h2>${movie.title}</h2>
-      <p><b>개봉일:</b> ${movie.release_date}</p>
-      <p><b>평점:</b> ${movie.vote_average}</p>
+      <a href="detailMovie.html" movieId=${movie.id}>
+        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+        <h2>${movie.title}</h2>
+        <p><b>개봉일:</b> ${movie.release_date}</p>
+        <p><b>평점:</b> ${movie.vote_average}</p>
+      </a>
     `;
 
     cardList.appendChild(movieElement);
@@ -58,10 +64,12 @@ function setupGenreButtons() {
         const movieElement = document.createElement("div");
         movieElement.classList.add("movie");
         movieElement.innerHTML = `
-          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
-          <h2>${movie.title}</h2>
-          <p><b>개봉일:</b> ${movie.release_date}</p>
-          <p><b>평점:</b> ${movie.vote_average}</p>
+          <a href="detailMovie.html">
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+            <h2>${movie.title}</h2>
+            <p><b>개봉일:</b> ${movie.release_date}</p>
+            <p><b>평점:</b> ${movie.vote_average}</p>
+          </a>
         `;
 
         cardList.appendChild(movieElement);
@@ -72,7 +80,3 @@ function setupGenreButtons() {
 }
 
 
-fetchMovies().then(() => {
-  makeMovieCards(movies); // 영화 데이터가 로드된 후 카드 생성
-  setupGenreButtons()
-});
