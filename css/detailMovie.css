@@ -1,0 +1,149 @@
+.titleSection {
+    background-color: green;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#home-button {
+    width: 50px;
+}
+
+
+
+
+
+
+.allPosition {
+    padding: 30px 150px 20px 150px;
+}
+
+
+
+.topPosition {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    height: 350px;
+}
+
+
+.moviePic {
+    background-color: grey;
+    width: 250px;
+}
+
+
+.contents {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between
+   
+}
+
+.contents1 {
+    /* background-color: gray; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.theme {
+    background-color: orange;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.summary {
+    background-color: orangered;
+    height: 160px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    margin: 0px;
+    padding: 10px;
+}
+
+
+.contents2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+   
+   
+}
+
+.genre {
+    background-color: greenyellow;
+    width: 160px;
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    background-color: green;
+    width: 160px;
+    display: flex;
+    align-items: center;
+}
+
+.rate {
+    background-color: yellowgreen;
+    width: 160px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.bottomPosition {
+    background-color: blueviolet;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px 20px 30px;
+}
+
+
+#writer {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+}
+
+#password {
+    width: 100px;
+    text-align: center;
+    height: 20px;
+}
+
+#review-input {
+    height: 40px;
+    width: 700px;
+}
+
+#review-button {
+    height: 46px;
+}
+
+.reviews {
+    background-color: gray;
+    height: 80px;
+    margin: 0px;
+    overflow-y: auto;
+    padding: 10px;
+    
+    
+}
