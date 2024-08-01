@@ -36,14 +36,24 @@ const makeMovieCards = async () => {
         <img src="https://image.tmdb.org/t/p/w500${movieData.poster_path}">
         <div class="contentBox">
           <h2 class="contentTitle">${movieData.title}</h2>
-          <p class="vote">${movieData.vote_average}</p>
+          <div class="infoBox">
+            <p class="vote">${movieData.vote_average}</p>
+            <p class="releaseDate">${movieData.release_date}</p>  <!-- 개봉일 추가 -->
+          </div>
         </div>
         <div class="overviewBox">
+          <h2 class="overviewTitle">${movieData.title}</h2>
           <p>${movieData.overview}</p>
       </div>
     </div>`
     )
     .join("");
+
+  // contentTitle 수정
+  const contentTitles = document.querySelectorAll(".contentTitle");
+  contentTitles.forEach(title => {
+    title.style.textAlign = "left"; // 왼쪽 정렬 적용
+  });
 
   cardList.addEventListener("click", clickCard);
 
@@ -87,4 +97,23 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   // 검색 이벤트 삽입
   searchFunc(inputBox.value);
+});
+
+// scrollBtn
+const scrollBtn = document.querySelector('.scrollBtn');
+
+document.addEventListener('scroll', () => {
+  //홈 높이의 반 정도 스크린이 위치했을 때, 상단으로 올라가는 버튼 등장
+  if( homeHeight/2 < window.scrollY ) {
+    scrollBtn.style.opacity = 1;
+  } else {
+    scrollBtn.style.opacity = 0;
+  }
+});
+
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
 });

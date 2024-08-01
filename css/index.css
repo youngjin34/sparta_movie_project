@@ -4,15 +4,22 @@
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
 
+/* 서브 폰트(영문) */
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+/* 폰트 끝*/
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'HSSanTokki20-Regular';
-  /* 새 폰트 적용 */
-  background-color: #AF6824 !important
+  background-color: rgb(244, 244, 244) !important
     /* background: linear-gradient(white, #eaa565, #AF6824); */
 }
 
@@ -40,14 +47,13 @@ a {
   align-items: center;
   text-align: center;
 
-  background-color: #fce96d;
+  background-color: #0f5fff;
   border-bottom: 1px solid #1f1f1f;
 }
 
 .title {
   display: flex;
-  font-weight: 700;
-  font-size: 40x;
+  font-size: 40px;
   font-family: 'HSSanTokki20-Regular';
 }
 
@@ -57,6 +63,7 @@ a {
 }
 
 .title a:hover {
+  /* 스타일 수정 필요 */
   /* 마우스 호버 상태에서 색상 변경 */
   color: #AF6824;
   text-shadow:
@@ -80,26 +87,29 @@ a {
 
 .inputBox {
   width: 400px;
-  height: 40px;
+  height: 50px;
   padding: 5px;
 
-  text-align: center;
-  border: 1px solid #fce96d;
+  border: 1.5px solid #0f5fff;
   /* border-radius: 10px; */
-  font-family: 'Pixelify+Sans';
-  font-size: 30px;
-  color: #1f1f1f;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #0f5fff;
 }
 
 .searchBtn {
-  width: 60px;
+  width: 100px;
   height: 50px;
   margin: 10px;
 
-  background-color: beige;
+  background-color: #0f5fff;
   border: none;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 20px;
+  color: #fff;
 }
 
 .cardList {
@@ -112,66 +122,89 @@ a {
   /* 기존 */
 }
 
-.movie {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(33% - 20px);
-  box-sizing: border-box;
-  margin-bottom: 20px;
-}
-
-.movie img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-.movie > p {
-}
-
 .oneCard {
-  margin: 20px;
-  padding: 10px;
-  height: 550px; /* 높이 설정 */
+  margin: 10px;
+  padding: 0px;
+  /* margin: 20px;
+  padding: 10px; */
+  /* 수정 */
+
+  border: 1.5px solid #0f5fff;
 
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
-  background-color: white;
+  background-color: #ffff;
 
   position: relative;
   overflow: hidden;
   /* 카드의 자식 요소(overviewBox)가 넘치지 않도록 설정 */
 }
 
-
 .oneCard img {
   width: 100%;
-  border-radius: 10px;
-}
-
-.contentTitle{
-  font-family: sans-serif;
-  size: 20px;
+  object-fit: cover;
+  /* 이미지가 카드 영역에 맞게 자르기 */
+  display: block;
+  /* 이미지를 블록 요소로 설정하여 여백 제거 */
+  /* border-radius: 10px; */
 }
 
 .contentBox {
-  margin: 10px;
+  padding: 20px 20px 0px 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  /* 상단 정렬 */
+  align-items: center;
+  width: 100%;
+  
+  /* 카드의 너비에 맞추어 설정 */
 }
 
+.contentTitle {
+  color: #0f5fff;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: left;
+  /* 왼쪽 정렬 추가 */
 
+  width: 100%;
+  /* 전체 너비를 차지하여 왼쪽 정렬 적용 */
+  overflow: hidden;
+  /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis;
+  /* 넘치는 텍스트를 '...'으로 표시 */
+  white-space: nowrap;
+  /* 텍스트를 한 줄로 유지 */
+  box-sizing: border-box;
+  /* padding과 border를 포함한 전체 너비 계산 */
+  padding-bottom: 5px;
+}
+
+/* infoBox(vote+releaseDate) 추가 */
+.infoBox {
+  /* border-top: 1.5px solid #0f5fff; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* 평점 스타일 */
 .vote {
-  margin-left: auto;
-  margin-top: auto;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
+}
+
+/* 개봉일 */
+.releaseDate {
+  color: #969696;
+  font-size: 18px;
 }
 
 /* Overview 박스 스타일 */
@@ -182,14 +215,16 @@ a {
   right: 0px;
   bottom: 0px;
   padding: 20px;
-  background-color: rgba(252, 233, 109, 0.95);
-  color: #1f1f1f;
-  border-radius: 10px;
+  background-color: #d9d9d9;
+  color: #0f5fff;
+  /* border-radius: 10px; */
+
   opacity: 0;
   visibility: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  /* 기본적으로 열 방향으로 배치 */
+  align-items: flex-start;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -197,4 +232,87 @@ a {
 .oneCard:hover .overviewBox {
   opacity: 1;
   visibility: visible;
+  flex-direction: column;
+  /* 제목 위에 개요가 오도록 설정 */
 }
+
+/* 호버 - 제목 스타일 */
+.overviewBox h2 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  /* 제목-개요 사이 간격 */
+  flex-direction: row;
+  /* 호버 시 방향을 행으로 설정 */
+  justify-content: flex-start;
+  /* 내용 왼쪽 정렬 */
+  align-items: flex-start;
+  /* 내용 상단 정렬 */
+  overflow:visible
+  /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+.overviewBox p {
+  font-size: 18px;
+  padding-right: 15px;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+
+/* 전체 스크롤바 */
+.overviewBox p::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 */
+.overviewBox p::-webkit-scrollbar-track {
+  background: #fff; /* 스크롤바 배경 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 트랙의 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 */
+.overviewBox p::-webkit-scrollbar-thumb {
+  background: #0f5fff; /* 스크롤바 핸들의 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 핸들의 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 호버 */
+/* .overviewBox p::-webkit-scrollbar-thumb:hover { */
+/*  background: rgb(0, 0, 0); /* 스크롤바 핸들이 호버될 때 색상 */
+/* } */
+
+.oneCard:hover .contentBox {
+  opacity: 0;
+  /*기본 상태에서는 줄거리 보이지 않도록 설정 */
+}
+
+/* scrollBtn */
+.scrollBtn {
+  /* 모양 동그랗게 */
+  width: 40px;
+  height: 40px;
+  background-color: #0f5fff;
+  border-radius: 50%;;
+
+  margin-left: auto;
+
+  /* 하단에 붙어있게 */
+  display: flex;
+  position: sticky;
+  bottom: 50px;
+  right: 10px;
+
+  /* opacity: 0; */
+  /* 평소에 안보이도록 */
+
+  /* transition: all 200ms ease-in-out; */
+  /* 버튼이 부드럽게 나타나도록 */
+}
+
+.scrollBtn > i {
+  margin: auto;
+  text-align: center;
+  font-size: var(-font-medium);
+  color: var(-color-dark-gray);
+}
+

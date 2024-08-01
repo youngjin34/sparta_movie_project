@@ -16,7 +16,7 @@
       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
 </head>
 
@@ -31,22 +31,21 @@
   </div>
 
   <form class="searchBox">
-    <input
-    type="text"
-    class="inputBox"
-    id="inputBox"
-    placeholder="영화 제목을 검색하세요"
-    />
-  <button type="submit" class="searchBtn">검색</button>
+    <input type="text" class="inputBox" id="inputBox" placeholder="Search movie title" />
+    <button type="submit" class="searchBtn">Search</button>
   </form>
-  <button class="scrollBtn" style="z-index: 10">
+  <!-- <button class="scrollBtn" style="z-index: 10">
     <a href="index.html#titleBox">☝</a>
-  </button>
+  </button> -->
 
-    <div class="cardList" id="cardList"></div>
+  <div class="cardList" id="cardList"></div>;
+
   </section>
 
-
+  <!-- scrollBtn -->
+  <button class="scrollBtn">
+    <i class="fa-sold fa-arrow-up"></i>
+  </button>
 
 </body>
 
