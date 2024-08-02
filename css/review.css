@@ -1,0 +1,140 @@
+input {
+  text-align: center;
+}
+
+.reviewDiv {
+  position: relative;
+  background-color: black;
+}
+
+.reviewBox {
+  width: 50%;
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  right: 0px;
+  bottom: -750px;
+}
+
+.reviewInputBox {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  opacity: 0.8;
+  padding: 20px;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.reviewNicknameInput,
+.reviewPasswordInput {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  font-size: 20px;
+  color: white;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 0 5px;
+  text-align: left;
+}
+
+/* 리뷰 내용 입력 필드 스타일 */
+.reviewContentInput {
+  width: 80%;
+  height: 27px;
+  margin: 5px 0;
+
+  resize: none;
+  font-size: 20px;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.reviewAddBtn {
+  width: 70px;
+  height: 40px;
+
+  /* margin: 10px; */
+
+  float: right;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: red;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.reviewOutputBox {
+  display: flex;
+  flex-direction: column;
+  height: 260px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 스크롤 가능하게 설정 */
+  padding: 10px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.reviewOutputBox::-webkit-scrollbar {
+  display: none;
+}
+
+.oneReview {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  color: white;
+}
+
+.deleteBtn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  float: right;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .reviewBox {
+    width: 100%;
+    margin: 20px; /* 화면 가장자리에 여백 추가 */
+    position: fixed; /* 위치 설정을 static으로 변경 */
+  }
+
+  .reviewNicknameInput,
+  .reviewPasswordInput,
+  .reviewContentInput {
+    font-size: 14px; /* 작은 화면에서 폰트 크기 줄이기 */
+  }
+
+  .reviewAddBtn {
+    font-size: 16px; /* 버튼 폰트 크기 줄이기 */
+  }
+}
+
+@media (max-width: 480px) {
+  .reviewNicknameInput,
+  .reviewPasswordInput,
+  .reviewContentInput {
+    font-size: 12px; /* 더 작은 화면에서 폰트 크기 줄이기 */
+  }
+
+  .reviewAddBtn {
+    height: 35px; /* 버튼 높이 줄이기 */
+    font-size: 14px; /* 버튼 폰트 크기 줄이기 */
+  }
+}
