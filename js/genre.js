@@ -5,23 +5,6 @@ fetchMovies().then(() => {
   setupGenreButtons();
 });
 
-window.onpageshow = function (event) {
-
-  // 새로고침: window.performance.navigation.type == 1
-  // 뒤로가기: window.performance.navigation.type == 2
-  if (event.persisted || (window.performance && (window.performance.navigation.type == 1 || window.performance.navigation.type == 2))) {
-
-    // 현재 브라우저에서 WebStorage를 지원할 때
-    if (('sessionStorage' in window) && window['sessionStorage'] !== null) {
-
-      // sessionStorage로 데이터 다시 불러오기
-      if (sessionStorage.getItem('DATA')) {
-        input_text.value = sessionStorage.getItem('DATA');
-      }
-    }
-  }
-}
-
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
   searchInput.focus();
@@ -81,7 +64,7 @@ function setupGenreButtons() {
   const genreButtons = document.querySelectorAll("[genre]");
   for (const button of genreButtons) {
     button.addEventListener("click", function () {
-      const offset = 100;
+      const offset = 130;
       const scrollPosition = document.querySelector(this.dataset.target).offsetTop - offset;
 
       window.scrollTo({ top: scrollPosition, behavior: "smooth" });
