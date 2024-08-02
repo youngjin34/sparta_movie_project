@@ -13,9 +13,26 @@ const setReviewData = () => {
   review.push(obj);
 
   localStorage.setItem("review", JSON.stringify(review));
-  window.location.reload();
+  location.reload();
 };
-reviewAddBtn.addEventListener("click", setReviewData);
+
+// 인풋 데이터 유효성 검사
+const addReviewCard = () => {
+  let nickname = document.querySelector(".reviewNicknameInput").value;
+  let password = document.querySelector(".reviewPasswordInput").value;
+  let content = document.querySelector(".reviewContentInput").value;
+
+  if (!nickname) {
+    return alert("닉네임을 입력해주세요");
+  } else if (!password) {
+    return alert("비밀번호를 입력해주세요");
+  } else if (!content) {
+    return alert("리뷰를 입력해주세요");
+  } else {
+    setReviewData();
+  }
+};
+reviewAddBtn.addEventListener("click", addReviewCard);
 
 // 리뷰 데이터 불러오기
 const getReviewData = () => {
@@ -36,12 +53,11 @@ const getReviewData = () => {
     }
   }
   check();
-  console.log(reviewData);
 
   return reviewData;
 };
 
-//리뷰 리스트 생성하기
+//리뷰 카드 생성하기
 const makeReviewData = () => {
   let reviewData = getReviewData();
   reviewData.forEach((element) => {
@@ -50,34 +66,39 @@ const makeReviewData = () => {
     let content = element.content;
 
     reviewOutputBox.innerHTML += `
-  <div class="oneReview">
-    <div class="outputNickname">${nickname}</div>
-    <div class="outputContent">${content}</div>
-    <button class="deleteBtn" id="${password}">삭제</button>
-  </div>`;
+      <div class="oneReview">
+        <div class="outputNickname">${nickname}</div>
+        <div class="outputContent">${content}</div>
+        <button class="deleteBtn" id="${password}">삭제</button>
+      </div>`;
   });
 };
 makeReviewData();
 
 // 리뷰데이터 삭제하기+이벤트 위임하기
 reviewOutputBox.addEventListener("click", deleteReview);
-
 function deleteReview({ target }) {
   if (target === reviewOutputBox) return;
 
   if (target.matches(".deleteBtn")) {
     let reviewData = getReviewData();
     let deletePassword = target.id;
-    console.log(deletePassword);
 
-    reviewData.forEach((element, index) => {
-      if (deletePassword === element.password) {
-        reviewData = reviewData.filter(
-          (e) => e !== reviewData.splice(index, 1)
-        );
-      }
-    });
-    localStorage.setItem("review", JSON.stringify(reviewData));
-    window.location.reload();
+    // password 입력창 띄우기
+    let passwordWindow = window.prompt("비밀번호를 입력하세요");
+    if (passwordWindow === deletePassword) {
+      let deleteCard = "";
+      reviewData.forEach((element, index) => {
+        if (deletePassword === element.password) {
+          deleteCard = reviewData.splice(index, 1);
+        }
+      });
+      reviewData = reviewData.filter((n) => n !== deleteCard);
+      localStorage.setItem("review", JSON.stringify(reviewData));
+      alert("리뷰가 삭제되었습니다.");
+      window.location.reload();
+    } else {
+      alert("비밀번호가 일치하지 않습니다.");
+    }
   }
 }

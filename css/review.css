@@ -79,7 +79,7 @@ input {
 
 .reviewOutputBox {
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 400px));
+  grid-template-columns: repeat(1, minmax(20px, 800px));
   justify-content: center;
 
   background-color: aqua;
@@ -95,4 +95,8 @@ input {
 
 .deleteBtn {
   display: flex;
+}
+
+.passwordBox {
+  display: none;
 }
