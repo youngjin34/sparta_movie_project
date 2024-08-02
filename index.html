@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영화 카드</title>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="titleBox container" id="titleBox">
+      <div id="slider__wrap">
+        <div id="slider"></div>
+      </div>
+      <header class="introduce">
+        <h1 class="title">
+          <a href="./index.html">9르면서 영화보기</a>
+        </h1>
+        <div>
+          심심할 때, 그냥 영화를 보고싶은데 뭘봐야 좋을지 모를 때 장르별로
+          검색해볼 수 있습니다.
+        </div>
+      </header>
+    </div>
+
+    <form class="searchBox serach-container">
+      <input type="text" class="inputBox" id="inputBox" placeholder="영화 제목을 검색하세요" />
+      <button type="submit" class="searchBtn">검색</button>
+      <button class="scrollBtn" style="z-index: 10">
+        <a href="index.html#titleBox">☝</a>
+      </button>
+    </form>
+
+    <div class="resentOld">
+      <button id="newest">최신순</button>
+      <button id="oldest">오래된순</button>
+    </div>
+
+    <section class="">
+      <div class="genre">
+        <button class="genre-btn" id="all-btn" genre="all">전체 보기</button>
+        <button class="genre-btn" id="comedy-btn" genre="comedy">
+          코미디
+        </button>
+        <button class="genre-btn" id="thriller-btn" genre="thriller">
+          스릴러
+        </button>
+        <button class="genre-btn" id="action-btn" genre="action">액션</button>
+        <button class="genre-btn" id="romance-btn" genre="romance">
+          로맨스
+        </button>
+        <button class="genre-btn" id="drama-btn" genre="drama">드라마</button>
+      </div>
+      <section class="card-container container">
+        <div class="cardList container" id="cardList">     
+            <!-- <div class="movie">  <a href="detailMovie.html">
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+          <h2>${movie.title}</h2>
+          <p><b>개봉일:</b> ${movie.release_date}</p>
+          <p><b>평점:</b> ${movie.vote_average}</p>
+        </a>
+      `; -->
+  </div>
+</div>
+      </section>
+    
+
+    </section>
+  </div>
+
+  <script type="module" src="./js/fetchData.js"></script>
+  <script type="module" src="./js/headerSlide.js"></script>
+  <script type="module" src="./js/genre.js"></script>
+  <script type="module" src="./js/sort.js"></script>
+</body>
+
+</html>
