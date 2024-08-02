@@ -272,6 +272,7 @@ a {
 .oneCard img {
   width: 100%;
   object-fit: cover;
+  height: 390px;
   /* 이미지가 카드 영역에 맞게 자르기 */
   display: block;
   /* 이미지를 블록 요소로 설정하여 여백 제거 */
@@ -286,6 +287,7 @@ a {
   /* 상단 정렬 */
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 
   /* 카드의 너비에 맞추어 설정 */
 }
@@ -293,10 +295,14 @@ a {
 .contentTitle {
   color: #000000;
   font-weight: bold;
-  text-align: center; /* 텍스트 가운데 정렬 */
+  text-align: left; /* 텍스트 가운데 정렬 */
   margin: 0; /* 불필요한 외부 여백 제거 */
   padding: 10px 0; /* 위아래에 약간의 여백 추가 */
   width: 100%; /* 부모 요소의 전체 너비 사용 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.2em;
 }
 
 /* infoBox(vote+releaseDate) 추가 */

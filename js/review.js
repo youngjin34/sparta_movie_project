@@ -18,7 +18,8 @@ const setReviewData = () => {
     password: password,
     content: content,
   };
-  let review = JSON.parse(localStorage.getItem(`review${movieId}`));
+
+  let review = JSON.parse(localStorage.getItem(`review${movieId}`)) || [];
   review.push(obj);
 
   localStorage.setItem(`review${movieId}`, JSON.stringify(review));
@@ -45,31 +46,17 @@ reviewAddBtn.addEventListener("click", addReviewCard);
 
 // 리뷰 데이터 불러오기
 const getReviewData = () => {
-  let reviewData = [];
-  function check() {
-    let obj = JSON.parse(localStorage.getItem(`review${movieId}`));
-    if (!obj) {
-      let dummyArr = [
-        { nickname: "닉네임", password: "비밀번호", content: "내용" },
-      ];
-      let dummyData = JSON.stringify(dummyArr);
-      localStorage.setItem(`review${movieId}`, dummyData);
-
-      let dummyObj = JSON.parse(localStorage.getItem(`review${movieId}`));
-      reviewData = dummyObj;
-    } else {
-      reviewData = obj;
-    }
-  }
-  check();
-
-  return reviewData;
+  let reviewData = JSON.parse(localStorage.getItem(`review${movieId}`)) || [];
+  return reviewData
 };
 
 //리뷰 카드 생성하기
 const makeReviewData = () => {
   let reviewData = getReviewData();
-  reviewData.forEach((element) => {
+  reviewOutputBox.innerHTML = "";
+
+  // 최신 리뷰가 위로 오도록 reverse() 사용
+  reviewData.reverse().forEach((element) => {
     let nickname = element.nickname;
     let password = element.password;
     let content = element.content;
