@@ -8,7 +8,6 @@ fetchMovies().then(() => {
 function sliderFunc() {
   const slideWrap = document.querySelector("#slider__wrap");
   const slider = slideWrap.querySelector("#slider");
-  console.log(movies);
 
   // 영화 데이터를 기반으로 슬라이더 요소 생성
   movies.forEach(movie => {
@@ -18,7 +17,6 @@ function sliderFunc() {
       `;
 
     slider.appendChild(sliderLi);
-    console.log(`Added movie: ${movie.title}`);
   });
 
   // 슬라이더 및 슬라이드 아이템 설정

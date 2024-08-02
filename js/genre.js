@@ -7,7 +7,7 @@ fetchMovies().then(() => {
 
 // 페이지가 로드되면 커서를 검색창으로 자동 지정
 window.onload = function () {
-  inputBox.focus();
+  searchInput.focus();
 };
 
 // 카드리스트 생성하기
@@ -76,18 +76,20 @@ function setupGenreButtons() {
         movieElement.classList.add("movie");
         movieElement.innerHTML = `
           <div class="oneCard">
-            <a href="detailMovie.html" id="movieId" movieId=${movie.id}>
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
-              <div class="contentBox">
-                <h2 class="contentTitle">${movie.title}</h2>
-                <div class="infoBox">
-                  <p class="vote"><b>평점:</b> ${movie.vote_average}</p>
-                  <p class="releaseDate"><b>개봉일:</b> ${movie.release_date}</p>
+            <a href="detailMovie.html"  id="movieId" movieId=${movie.id}>
+              <div class="movie-content-position">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
+                <div class="contentBox">
+                  <h2 class="contentTitle">${movie.title}</h2>
+                  <div class="infoBox">
+                    <p class="vote"><b>평점:</b> ${movie.vote_average}</p>
+                    <p class="releaseDate"><b>개봉일:</b> ${movie.release_date}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="overviewBox">
-                <h2 class="overviewTitle">${movie.title}</h2>
-                <p>${movie.overview}</p>
+                <div class="overviewBox">
+                  <h2 class="overviewTitle">${movie.title}</h2>
+                  <p>${movie.overview}</p>
+                </div>
               </div>
             </a>
           </div>

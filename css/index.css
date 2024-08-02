@@ -10,9 +10,8 @@
 
 .genre {
   position: absolute;
-
-  top: 25px;
-  left: 30px;
+  left: 50%; /* 부모 요소의 왼쪽에서 50% 이동 */
+  transform: translateX(-50%); /* 자신의 너비의 50%만큼 왼쪽으로 이동 */
 }
 
 .genre > button {
@@ -20,6 +19,13 @@
   border: none;
   background: none;
   color: white;
+  font-size: 24px;
+  padding-right: 30px;
+}
+
+.genre > button:hover {
+  color: gray;
+  transition: all 0.8;
 }
 
 @media (min-width: 780px) {
@@ -27,6 +33,7 @@
     top: 20px;
   }
 }
+
 /* ------------------header slide-------------------- */
 /* 슬라이더 전체 컨테이너 */
 #slider__wrap {
@@ -34,7 +41,7 @@
   overflow: hidden; /* 슬라이더가 컨테이너 밖으로 나가지 않도록 */
   position: relative;
   left: 100px;
-  top: 200px;
+  top: 150px;
 }
 
 /* 슬라이더 */
@@ -61,11 +68,6 @@
 }
 
 /* ----------------------원페이지 스크롤----------------------- */
-.wrap {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
-}
 
 /* .serach-container {
   width: 100%;
@@ -80,15 +82,10 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* 가로 스크롤 제거 */
 
   /* overflow: hidden; */
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(244, 244, 244) !important;
-  /* background: linear-gradient(white, #eaa565, #AF6824); */
 }
 
 a {
@@ -117,6 +114,38 @@ a {
   background-color: rgb(0, 0, 0);
 }
 
+@media (max-height: 600px) {
+  .titleBox {
+    padding: 10px;
+  }
+
+  .searchBox {
+    width: 80%;
+    max-width: 500px;
+    margin-top: 10px;
+  }
+
+  .titleBox div {
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 400px) {
+  .titleBox {
+    padding: 5px;
+  }
+
+  .searchBox {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 5px;
+  }
+
+  .titleBox div {
+    font-size: 18px;
+  }
+}
+
 .titleBox a {
   color: white;
   width: 100%;
@@ -132,7 +161,7 @@ a {
   position: absolute;
   width: 29%;
   right: 100px;
-  top: 300px;
+  top: 150px;
 }
 
 .title {
@@ -147,18 +176,29 @@ a {
   text-decoration: none;
 }
 
+.search-container {
+  position: relative;
+}
+
 .searchBox {
-  width: 100%;
-  height: 100px;
   position: absolute;
 
-  right: 10px;
-  top: 25px;
+  left: 50%; /* 부모 요소의 왼쪽에서 50% 이동 */
+  transform: translateX(-50%); /* 자신의 너비의 50%만큼 왼쪽으로 이동 */
+  top: 200px;
 }
 
 .inputBox {
+  width: 500px;
+  height: 60px;
   border: none;
-  font-size: 18px;
+  font-size: 24px;
+
+  background: none;
+
+  outline: none;
+  border-bottom: 1px solid gray;
+  color: white;
 }
 
 .searchBtn {
@@ -170,6 +210,7 @@ a {
 }
 
 .card-container {
+  height: 100%;
   margin: 0 auto;
   background: rgb(0, 0, 0);
   background: linear-gradient(
@@ -208,9 +249,25 @@ a {
 
   position: relative;
   overflow: hidden;
-  /* 카드의 자식 요소(overviewBox)가 넘치지 않도록 설정 */
 }
 
+.movie {
+  flex: 1 1 300px; /* 기본 너비 300px, 필요에 따라 늘어남 */
+  margin: 10px; /* 카드 사이 여백 */
+  max-width: 300px; /* 카드 최대 너비 */
+  min-height: 450px; /* 카드 최소 높이 설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-content-position {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 .oneCard img {
   width: 100%;
   object-fit: cover;
@@ -235,28 +292,14 @@ a {
 .contentTitle {
   color: #000000;
   font-weight: bold;
-  margin-bottom: 40px;
-  text-align: left;
-  /* 왼쪽 정렬 추가 */
-
-  width: 100%;
-  /* 전체 너비를 차지하여 왼쪽 정렬 적용 */
-  overflow: hidden;
-  /* 넘치는 텍스트 숨기기 */
-  text-overflow: ellipsis;
-  /* 넘치는 텍스트를 '...'으로 표시 */
-  white-space: nowrap;
-  /* 텍스트를 한 줄로 유지 */
-  box-sizing: border-box;
-  /* padding과 border를 포함한 전체 너비 계산 */
-  padding-bottom: 5px;
+  text-align: center; /* 텍스트 가운데 정렬 */
+  margin: 0; /* 불필요한 외부 여백 제거 */
+  padding: 10px 0; /* 위아래에 약간의 여백 추가 */
+  width: 100%; /* 부모 요소의 전체 너비 사용 */
 }
 
 /* infoBox(vote+releaseDate) 추가 */
 .infoBox {
-  /* border-top: 1.5px solid #0f5fff; */
-  display: flex;
-  justify-content: space-between;
   width: 100%;
   margin-top: 10px;
   align-items: center; /* 수직 중앙 정렬 */
@@ -264,6 +307,7 @@ a {
 
 /* 평점 스타일 */
 .vote {
+  color: black;
   font-size: 18px;
   font-weight: 700;
 }
