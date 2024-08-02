@@ -1,0 +1,102 @@
+input {
+  text-align: center;
+}
+
+.reviewDiv {
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+}
+
+.reviewBox {
+  width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: antiquewhite;
+}
+
+.reviewInputBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 20px;
+
+  background-color: aqua;
+}
+
+.reviewNicknameInput {
+  width: 100px;
+  height: 30px;
+
+  margin: 5px 0;
+
+  font-size: 20px;
+}
+
+.reviewPasswordInput {
+  width: 100px;
+  height: 30px;
+
+  margin: 5px 0;
+
+  font-size: 20px;
+}
+
+.reviewContentInput {
+  width: 600px;
+  height: 80px;
+  margin: 5px 0;
+
+  font-size: 20px;
+}
+
+.reviewAddBtn {
+  width: 70px;
+  height: 70px;
+
+  margin: 10px;
+
+  float: right;
+  font-size: 20px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-color: blue;
+  color: #fff;
+  box-shadow: 0 0 40px 40px blue inset, 0 0 0 0 blue;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    color: black;
+    box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  }
+}
+
+.reviewOutputBox {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(20px, 800px));
+  justify-content: center;
+
+  background-color: aqua;
+}
+
+.oneReview {
+  position: absolute;
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteBtn {
+  display: flex;
+}
+
+.passwordBox {
+  display: none;
+}

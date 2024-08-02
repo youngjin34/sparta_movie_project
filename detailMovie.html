@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>구르면서 영화보기</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/detailMovie.css" />
+    <link rel="stylesheet" href="./css/review.css" />
+    <script type="module" src="./js/review.js"></script>
   </head>
 
   <body>
@@ -19,26 +25,32 @@
     <section class="allPosition">
       <div id="topPosition"></div>
 
-      <div class="bottomPosition">
-        <div>
-          <input type="text" id="writer" placeholder="작성자" />
-          <input type="text" id="password" placeholder="비밀번호" />
-        </div>
-
-        <div>
-          <input type="text" id="review-input" placeholder="입력하세요." />
-          <button type="button" id="review-button">작성</button>
-        </div>
-
-        <div>
-          <p class="reviews">리뷰들</p>
+      <div class="reviewDiv">
+        <div class="reviewBox">
+          <div class="reviewInputBox">
+            <div>
+              <div>
+                <input class="reviewNicknameInput" placeholder="닉네임" />
+                <input class="reviewPasswordInput" placeholder="비밀번호" />
+              </div>
+              <div>
+                <textarea
+                  class="reviewContentInput"
+                  placeholder="리뷰를 입력해주세요"
+                ></textarea>
+                <button class="reviewAddBtn">추가</button>
+              </div>
+            </div>
+          </div>
+          <div class="reviewOutputBox">
+            <div class="oneReview">
+              <div class="outputNickname">${nickname}</div>
+              <div class="outputContent">${content}</div>
+              <button class="deleteBtn" id="${password}">삭제</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <script type="module" src="./js/detailPage.js"></script>
-    <script type="module" src="./js/fetchData.js"></script>
-    <script type="module" src="./js/genre.js"></script>
-    <script type="module" src="./js/search.js"></script>
   </body>
 </html>
