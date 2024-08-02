@@ -210,6 +210,34 @@ a {
   color: white;
 }
 
+/* ----------------정렬 버튼--------------- */
+.newOld {
+  position: relative;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(82, 71, 71, 0.925) 54%,
+    rgb(0, 0, 0) 100%
+  );
+  padding: 10px 0;
+}
+
+.newOld > button {
+  position: relative;
+  left: 68%;
+  top: 10px;
+  color: white;
+  background: none;
+  border: none;
+  font-family: 'jua';
+  font-size: 18px;
+  cursor: pointer;
+  /* margin-left: 20px; */
+}
+
+/* --------------영화 카드-------------------- */
+
 .card-container {
   /* height: 100%; */
   margin: 0 auto;
@@ -402,7 +430,6 @@ a {
 /* scrollBtn */
 .scrollBtn {
   cursor: pointer;
-  /* 모양 동그랗게 */
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -410,7 +437,6 @@ a {
   margin-left: auto;
 
   /* 하단에 붙어있게 */
-  /* display: flex; */
   position: fixed;
   bottom: 50px;
   right: 50px;

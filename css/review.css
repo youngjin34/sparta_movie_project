@@ -15,7 +15,7 @@ input {
   flex-direction: column;
 
   right: 0px;
-  bottom: -720px;
+  bottom: -750px;
 }
 
 .reviewInputBox {
@@ -33,13 +33,14 @@ input {
 .reviewPasswordInput {
   width: 100px;
   height: 30px;
-  /* margin: 5px 0; */
   outline: none;
   font-size: 20px;
-  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  color: white;
   background: none;
   border: none;
-  border-bottom: 1px solid white; /* 테두리 색상을 흰색으로 설정 */
+  border-bottom: 1px solid white;
+  padding: 0 5px;
+  text-align: left;
 }
 
 /* 리뷰 내용 입력 필드 스타일 */
@@ -50,11 +51,11 @@ input {
 
   resize: none;
   font-size: 20px;
-  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  color: white;
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid white; /* 테두리 색상을 흰색으로 설정 */
+  border-bottom: 1px solid white;
   padding: 10px;
 }
 
@@ -75,7 +76,7 @@ input {
 .reviewOutputBox {
   display: flex;
   flex-direction: column;
-  height: 250px; /* 최대 높이 설정 */
+  height: 260px; /* 최대 높이 설정 */
   overflow-y: auto; /* 스크롤 가능하게 설정 */
   padding: 10px;
   background-color: black;
