@@ -1,3 +1,8 @@
+import { createDetailPage } from "./detailPage.js";
+
+const searchId = new URLSearchParams(window.location.search);
+const movieId = searchId.get("movieId");
+
 const reviewAddBtn = document.querySelector(".reviewAddBtn");
 
 const reviewOutputBox = document.querySelector(".reviewOutputBox");
@@ -8,11 +13,15 @@ const setReviewData = () => {
   let password = document.querySelector(".reviewPasswordInput").value;
   let content = document.querySelector(".reviewContentInput").value;
 
-  let obj = { nickname: nickname, password: password, content: content };
-  let review = JSON.parse(localStorage.getItem("review"));
+  let obj = {
+    nickname: nickname,
+    password: password,
+    content: content,
+  };
+  let review = JSON.parse(localStorage.getItem(`review${movieId}`));
   review.push(obj);
 
-  localStorage.setItem("review", JSON.stringify(review));
+  localStorage.setItem(`review${movieId}`, JSON.stringify(review));
   location.reload();
 };
 
@@ -38,15 +47,15 @@ reviewAddBtn.addEventListener("click", addReviewCard);
 const getReviewData = () => {
   let reviewData = [];
   function check() {
-    let obj = JSON.parse(localStorage.getItem("review"));
+    let obj = JSON.parse(localStorage.getItem(`review${movieId}`));
     if (!obj) {
       let dummyArr = [
         { nickname: "닉네임", password: "비밀번호", content: "내용" },
       ];
       let dummyData = JSON.stringify(dummyArr);
-      localStorage.setItem("review", dummyData);
+      localStorage.setItem(`review${movieId}`, dummyData);
 
-      let dummyObj = JSON.parse(localStorage.getItem("review"));
+      let dummyObj = JSON.parse(localStorage.getItem(`review${movieId}`));
       reviewData = dummyObj;
     } else {
       reviewData = obj;
@@ -73,6 +82,13 @@ const makeReviewData = () => {
       </div>`;
   });
 };
+
+// 로컬스토리지 모든 데이터 삭제
+// 아래 2줄 코드 중 위쪽 주석 처리 취소하고 아래쪽 주석 처리 후 새로고침
+// 하면 로컬 스토리지 삭제 가능
+// 다시 리뷰 데이터를 쌓고 싶으면 두 줄 코드 원래대로 돌려놓기
+
+// localStorage.clear();
 makeReviewData();
 
 // 리뷰데이터 삭제하기+이벤트 위임하기
@@ -94,7 +110,7 @@ function deleteReview({ target }) {
         }
       });
       reviewData = reviewData.filter((n) => n !== deleteCard);
-      localStorage.setItem("review", JSON.stringify(reviewData));
+      localStorage.setItem(`review${movieId}`, JSON.stringify(reviewData));
       alert("리뷰가 삭제되었습니다.");
       window.location.reload();
     } else {

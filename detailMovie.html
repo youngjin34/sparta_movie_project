@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구르면서 영화보기</title>
+    <link rel="stylesheet" href="./css/detailMovie.css" />
+    <link rel="stylesheet" href="./css/review.css" />
+    <script type="module" src="./js/review.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="titleSection">
+        <button type="button" id="home-button">home</button>
+        <h1 class="title">구르면서 영화보기</h1>
+        <div style="width: 70px"></div>
+      </div>
+    </header>
+
+    <section class="allPosition">
+      <div id="topPosition"></div>
+
+      <div class="reviewDiv">
+        <div class="reviewBox">
+          <div class="reviewInputBox">
+            <div>
+              <div>
+                <input class="reviewNicknameInput" placeholder="닉네임" />
+                <input class="reviewPasswordInput" placeholder="비밀번호" />
+              </div>
+              <div>
+                <textarea
+                  class="reviewContentInput"
+                  placeholder="리뷰를 입력해주세요"
+                ></textarea>
+                <button class="reviewAddBtn">추가</button>
+              </div>
+            </div>
+          </div>
+          <div class="reviewOutputBox">
+            <div class="oneReview">
+              <div class="outputNickname">${nickname}</div>
+              <div class="outputContent">${content}</div>
+              <button class="deleteBtn" id="${password}">삭제</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

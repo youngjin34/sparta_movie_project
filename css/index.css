@@ -1,117 +1,417 @@
+/* ---------------genre button---------------- */
+.button-container {
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 10%;
+
+  z-index: 1;
+}
+
+.genre {
+  position: absolute;
+  left: 50%; /* 부모 요소의 왼쪽에서 50% 이동 */
+  transform: translateX(-50%); /* 자신의 너비의 50%만큼 왼쪽으로 이동 */
+}
+
+.genre > button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 24px;
+  padding-right: 30px;
+}
+
+.genre > button:hover {
+  color: gray;
+  transition: all 0.8;
+}
+
+@media (min-width: 780px) {
+  .genre {
+    top: 20px;
+  }
+}
+
+/* ------------------header slide-------------------- */
+/* 슬라이더 전체 컨테이너 */
+#slider__wrap {
+  width: 50%;
+  overflow: hidden; /* 슬라이더가 컨테이너 밖으로 나가지 않도록 */
+  position: relative;
+  left: 100px;
+  top: 150px;
+}
+
+/* 슬라이더 */
+#slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out; /* 부드러운 이동 효과 */
+}
+
+/* 각 슬라이드 요소 */
+#slider li {
+  list-style: none;
+  flex: 0 0 1.5%; /* 각 슬라이드가 컨테이너의 100% 너비 차지 */
+
+  margin-right: 20px;
+}
+
+/* 이미지 스타일 */
+#slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 10px;
+}
+
+/* ----------------------원페이지 스크롤----------------------- */
+
+/* .serach-container {
+  width: 100%;
+  height: 100vh;
+} */
+
+/* .container {
+  width: 100%;
+  height: 110vh;
+} */
+/* ------------------------------------------------------------ */
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* 가로 스크롤 제거 */
+
+  /* overflow: hidden; */
 }
+
 a {
   text-decoration: none;
 }
 
 .scrollBtn {
   position: fixed;
-  top: 83%;
-  left: 93%;
+  bottom: 15px;
+  right: 10px;
 
-  font-size: 80px;
+  font-size: 50px;
   background-color: transparent;
   border: none;
 }
 
 .titleBox {
   width: 100%;
-  height: 100px;
+  height: 100vh;
+  position: relative;
 
   display: flex;
+  flex-direction: column;
+  text-align: end;
 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-color: rgb(0, 0, 0);
+}
 
-  background-color: rgb(233, 150, 92);
+@media (max-height: 600px) {
+  .titleBox {
+    padding: 10px;
+  }
+
+  .searchBox {
+    width: 80%;
+    max-width: 500px;
+    margin-top: 10px;
+  }
+
+  .titleBox div {
+    font-size: 20px;
+  }
+}
+
+@media (max-height: 400px) {
+  .titleBox {
+    padding: 5px;
+  }
+
+  .searchBox {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 5px;
+  }
+
+  .titleBox div {
+    font-size: 18px;
+  }
+}
+
+.titleBox a {
+  color: white;
+  width: 100%;
+}
+
+.titleBox div {
+  color: white;
+  font-size: 24px;
+}
+
+.introduce {
+  padding: 50px;
+  position: absolute;
+  width: 29%;
+  right: 100px;
+  top: 150px;
 }
 
 .title {
-  display: flex;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 60px;
+  font-family: 'jua';
+  border-bottom: 1px solid #1f1f1f;
+}
 
-  color: #622626;
+.title a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.search-container {
+  position: relative;
 }
 
 .searchBox {
-  width: 100%;
-  height: 100px;
+  position: absolute;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: row;
-
-  background-color: bisque;
+  left: 50%; /* 부모 요소의 왼쪽에서 50% 이동 */
+  transform: translateX(-50%); /* 자신의 너비의 50%만큼 왼쪽으로 이동 */
+  top: 200px;
 }
 
 .inputBox {
   width: 500px;
-  height: 50px;
-  padding: 5px;
-
-  text-align: center;
-
+  height: 60px;
   border: none;
-  border-radius: 10px;
-  font-size: 40px;
+  font-size: 24px;
+
+  background: none;
+
+  outline: none;
+  border-bottom: 1px solid gray;
+  color: white;
 }
 
 .searchBtn {
-  width: 60px;
-  height: 50px;
-  margin: 10px;
-
-  background-color: beige;
+  cursor: pointer;
   border: none;
-  border-radius: 10px;
+  background: none;
   font-size: 20px;
+  color: white;
+}
+
+.card-container {
+  height: 100%;
+  margin: 0 auto;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(82, 71, 71, 0.925) 54%,
+    rgb(0, 0, 0) 100%
+  );
+}
+
+.movie > a {
+  color: black;
 }
 
 .cardList {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-
-  background-color: antiquewhite;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* 최소 크기를 250px로 하고 최대 4열로 */
+  gap: 20px; /* 카드 간 간격 */
+  padding: 20px 40px; /* 위아래 20px, 양쪽 50px의 패딩 */
+  box-sizing: border-box; /* 패딩 포함한 전체 너비 계산 */
+  max-width: 1200px; /* 최대 너비를 1200px로 제한 */
+  margin: 0 auto; /* 가운데 정렬 */
 }
 
 .oneCard {
-  margin: 20px;
-  padding: 10px;
+  /* margin: 10px; */
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
+  height: 100%;
   border-radius: 10px;
 
-  background-color: rgb(196, 148, 115);
+  background-color: #ffff;
 
   position: relative;
+  overflow: hidden;
 }
 
+.movie {
+  flex: 1 1 300px; /* 기본 너비 300px, 필요에 따라 늘어남 */
+  margin: 10px; /* 카드 사이 여백 */
+  max-width: 300px; /* 카드 최대 너비 */
+  min-height: 450px; /* 카드 최소 높이 설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-content-position {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 .oneCard img {
   width: 100%;
-  border-radius: 10px;
+  object-fit: cover;
+  /* 이미지가 카드 영역에 맞게 자르기 */
+  display: block;
+  /* 이미지를 블록 요소로 설정하여 여백 제거 */
+  /* border-radius: 10px; */
 }
 
 .contentBox {
-  margin: 10px;
+  padding: 20px 20px 0px 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  /* 상단 정렬 */
+  align-items: center;
+  width: 100%;
+
+  /* 카드의 너비에 맞추어 설정 */
 }
 
+.contentTitle {
+  color: #000000;
+  font-weight: bold;
+  text-align: center; /* 텍스트 가운데 정렬 */
+  margin: 0; /* 불필요한 외부 여백 제거 */
+  padding: 10px 0; /* 위아래에 약간의 여백 추가 */
+  width: 100%; /* 부모 요소의 전체 너비 사용 */
+}
+
+/* infoBox(vote+releaseDate) 추가 */
+.infoBox {
+  width: 100%;
+  margin-top: 10px;
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* 평점 스타일 */
 .vote {
-  margin-left: auto;
-  margin-top: auto;
-  font-size: 24px;
+  color: black;
+  font-size: 18px;
   font-weight: 700;
+}
+
+/* ------------------------------------------------------- */
+/* 개봉일 */
+.releaseDate {
+  color: #000000;
+  font-size: 18px;
+}
+
+/* Overview 박스 스타일 */
+.overviewBox {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  color: #000000;
+  /* border-radius: 10px; */
+
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  /* 기본적으로 열 방향으로 배치 */
+  align-items: flex-start;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 카드에 마우스 올렸을때 overviewBox 호버 */
+.oneCard:hover .overviewBox {
+  opacity: 1;
+  visibility: visible;
+  flex-direction: column;
+  /* 제목 위에 개요가 오도록 설정 */
+}
+
+/* 호버 - 제목 스타일 */
+.overviewBox h2 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  /* 제목-개요 사이 간격 */
+  flex-direction: row;
+  /* 호버 시 방향을 행으로 설정 */
+  justify-content: flex-start;
+  /* 내용 왼쪽 정렬 */
+  align-items: flex-start;
+  /* 내용 상단 정렬 */
+  overflow: visible;
+  /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+.overviewBox p {
+  font-size: 18px;
+  padding-right: 15px;
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 가능 */
+}
+
+/* 전체 스크롤바 */
+.overviewBox p::-webkit-scrollbar {
+  width: 6px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 */
+.overviewBox p::-webkit-scrollbar-track {
+  background: #fff; /* 스크롤바 배경 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 트랙의 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 */
+.overviewBox p::-webkit-scrollbar-thumb {
+  background: #ff0000; /* 스크롤바 핸들의 색상 */
+  /* border-radius: 10px; */ /* 스크롤바 핸들의 둥근 모서리 */
+}
+
+.oneCard:hover .contentBox {
+  opacity: 0;
+  /*기본 상태에서는 줄거리 보이지 않도록 설정 */
+}
+
+/* scrollBtn */
+.scrollBtn {
+  cursor: pointer;
+  /* 모양 동그랗게 */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  margin-left: auto;
+
+  /* 하단에 붙어있게 */
+  display: flex;
+  position: sticky;
+  bottom: 50px;
+  right: 50px;
+}
+
+.scrollBtn > i {
+  margin: auto;
+  text-align: center;
+  font-size: var(-font-medium);
+  color: var(-color-dark-gray);
 }
