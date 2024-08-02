@@ -1,6 +1,5 @@
 export let movies = [];
 
-// 특정 페이지에서 영화 데이터를 가져오는 함수
 async function fetchMovieData(page = 1) {
   const options = {
     method: "GET",
@@ -11,6 +10,8 @@ async function fetchMovieData(page = 1) {
     },
   };
 
+  // fetch로 불러온 promise를 json=>객체 배열로 변환하여 그 중 필요한 데이터 results만 추출하여 반환
+  // 특정 페이지에서 영화 데이터를 가져오는 함수
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${options.headers.Authorization}&language=ko&page=${page}`,
     options
@@ -25,10 +26,10 @@ export async function fetchMovies(pages = 4) {
     const movieData = await fetchMovieData(i);
     movies.push(...movieData);
   }
-  const newMovies = movies.filter((movieId1, idx) => {
+  const newMovies = movies.filter((movieId, idx) => {
     return (
-      movies.findIndex((movieId2) => {
-        return movieId1.id === movieId2.id
+      movies.findIndex((movieId1) => {
+        return movieId.id === movieId1.id
       }) === idx
     )
   });

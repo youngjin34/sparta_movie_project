@@ -33,7 +33,7 @@ fetchMovies().then(() => {
 
       filteredMovie.innerHTML = `
           <div class="oneCard">
-            <a href="detailMovie.html" id="movieId" movieId=${movie.id}>
+            <a href="detailMovie.html?movieId=${movie.id}">
               <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title} 포스터">
               <div class="contentBox">
                 <h2 class="contentTitle">${movie.title}</h2>
@@ -50,10 +50,6 @@ fetchMovies().then(() => {
           </div>
     `;
       searchMovie.appendChild(filteredMovie);
-
-      filteredMovie.addEventListener("click", () => {
-        alert(`영화 id: ${movie.id}`);
-      });
     });
   });
 })

@@ -1,1 +1,44 @@
-<h1>안녕하세여 저는 말하는 감자입니다....ㅎ</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구르면서 영화보기</title>
+    <link rel="stylesheet" href="./css/detailMovie.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="titleSection">
+        <button type="button" id="home-button">home</button>
+        <h1 class="title">구르면서 영화보기</h1>
+        <div style="width: 70px"></div>
+      </div>
+    </header>
+
+    <section class="allPosition">
+      <div id="topPosition"></div>
+
+      <div class="bottomPosition">
+        <div>
+          <input type="text" id="writer" placeholder="작성자" />
+          <input type="text" id="password" placeholder="비밀번호" />
+        </div>
+
+        <div>
+          <input type="text" id="review-input" placeholder="입력하세요." />
+          <button type="button" id="review-button">작성</button>
+        </div>
+
+        <div>
+          <p class="reviews">리뷰들</p>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="./js/detailPage.js"></script>
+    <script type="module" src="./js/fetchData.js"></script>
+    <script type="module" src="./js/genre.js"></script>
+    <script type="module" src="./js/search.js"></script>
+  </body>
+</html>
