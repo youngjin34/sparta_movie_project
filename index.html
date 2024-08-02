@@ -18,18 +18,57 @@
     <div class="titleBox" id="titleBox">
       <div class="button-container">
         <div class="genre">
-          <button class="genre-btn" id="all-btn" genre="all">전체 보기</button>
-          <button class="genre-btn" id="comedy-btn" genre="comedy">
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="all-btn"
+            genre="all"
+          >
+            전체 보기
+          </button>
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="comedy-btn"
+            genre="comedy"
+          >
             코미디
           </button>
-          <button class="genre-btn" id="thriller-btn" genre="thriller">
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="thriller-btn"
+            genre="thriller"
+          >
             스릴러
           </button>
-          <button class="genre-btn" id="action-btn" genre="action">액션</button>
-          <button class="genre-btn" id="romance-btn" genre="romance">
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="action-btn"
+            genre="action"
+          >
+            액션
+          </button>
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="romance-btn"
+            genre="romance"
+          >
             로맨스
           </button>
-          <button class="genre-btn" id="drama-btn" genre="drama">드라마</button>
+          <button
+            data-target="#movie-list"
+            class="genre-btn"
+            id="drama-btn"
+            genre="drama"
+          >
+            드라마
+          </button>
+          <!-- <button class="genre-btn" id="fantasy-btn" genre="fantasy">
+            판타지
+          </button> -->
         </div>
       </div>
       <div id="slider__wrap">
@@ -57,10 +96,10 @@
       </div>
     </div>
 
-    <!-- <div class="cardList" id="cardList"></div> -->
-
-    <section class="card-container">
-      <div class="cardList" id="cardList"></div>
+    <section class="height">
+      <section id="movie-list" class="card-container">
+        <div class="cardList" id="cardList"></div>
+      </section>
     </section>
 
     <button class="scrollBtn">

@@ -8,16 +8,29 @@ fetchMovies().then(() => {
 const GENRE_MAP = {
   35: "코미디",
   53: "스릴러",
-  28: "맥션",
+  28: "액션",
   10749: "로맨스",
-  18: "드라마"
+  18: "드라마",
+  12: "어드밴쳐",
+  16: "애니메이션",
+  80: "범죄",
+  99: "다큐멘터리",
+  10751: "가족",
+  14: "판타지",
+  36: "역사",
+  27: "호러",
+  10402: "음악",
+  9648: "미스테리",
+  878: "공상 과학",
+  10770: "TV 영화",
+  10752: "전쟁",
+  37: "서양"
 };
 
 // 상세페이지 데이터 입력
 function createDetailPage() {
   const searchId = new URLSearchParams(window.location.search);
   const movieId = searchId.get("movieId");
-  console.log(movieId);
 
   const selectedMovieElement = document.querySelector("#topPosition");
   const filteredMovie = movies.find(movie => movie.id === parseInt(movieId, 10));
