@@ -58,6 +58,21 @@ function createDetailPage() {
         </div>
     </div>
   `;
+
+  // 배경 이미지 설정
+  document.body.style.backgroundImage = `
+      linear-gradient(
+        to right,
+        rgba(20, 20, 20, 0.8) 20%,
+        rgba(20, 20, 20, 0.6) 40%,
+        rgba(20, 20, 20, 0.4) 60%,
+        rgba(20, 20, 20, 0.2) 80%,
+        rgba(20, 20, 20, 0) 100%
+      ),
+      url('https://image.tmdb.org/t/p/w1280${filteredMovie.backdrop_path}')
+    `;
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
 }
 
 
