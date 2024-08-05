@@ -52,7 +52,6 @@ function genreMovies(genreValue) {
     action: 28,
     romance: 10749,
     drama: 18,
-    fantasy: 14
   };
 
   const genreId = genreMap[genreValue];

@@ -55,17 +55,39 @@
 #slider li {
   list-style: none;
   flex: 0 0 1.5%; /* 각 슬라이드가 컨테이너의 100% 너비 차지 */
-
   margin-right: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* 애니메이션 추가 */
+  position: relative; /* 배경 투명도 효과를 위한 포지션 */
+  overflow: hidden;
 }
 
-/* 이미지 스타일 */
 #slider img {
   width: 100%;
   height: auto;
   display: block;
-
   border-radius: 10px;
+  transition: transform 0.3s ease-in-out; /* 확대 효과를 위한 트랜지션 */
+}
+
+/* 호버 효과: 이미지 확대, 그림자 추가, 배경 투명도 조정 */
+#slider li:hover {
+  transform: scale(1.05); /* 이미지 살짝 확대 */
+}
+
+#slider li:hover img {
+  transform: scale(1.1); /* 이미지 더 확대 */
+}
+
+#slider li:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* 어두운 배경 효과 */
+  pointer-events: none; /* 이벤트 차단 */
+  transition: background 0.3s ease-in-out; /* 배경 전환 효과 */
 }
 
 /* ----------------------원페이지 스크롤----------------------- */
@@ -451,4 +473,11 @@ a {
 
 .height {
   height: 100vh;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(82, 71, 71, 0.925) 54%,
+    rgb(0, 0, 0) 100%
+  );
 }
